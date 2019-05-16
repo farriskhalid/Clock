@@ -1,0 +1,70 @@
+let hrDIV;
+let minDIV;
+let secDIV;
+let hr;
+let min;
+let sec;
+
+window.onload = init();
+
+function init(){
+    this.hrDIV = document.getElementById("hr");
+    this.minDIV = document.getElementById("min");
+    this.secDIV = document.getElementById("sec");
+
+    var date = new Date();
+    this.hr = date.getHours();
+    this.min = date.getMinutes();
+    this.sec = date.getSeconds();
+
+    civilianTime();
+
+    this.hrDIV.innerHTML = this.hr;
+    this.minDIV.innerHTML = this.min;
+    this.secDIV.innerHTML = this.sec;
+
+    ticker();
+}
+
+function civilianTime(){
+    if (this.hr > 12){
+        this.hr = this.hr - 12
+    }
+}
+
+function ticker(){
+    setInterval(
+        function () {
+            if (this.sec < 60) {
+                this.sec += 1;
+                this.secDIV.innerHTML = this.sec;
+            }
+            else if (this.sec == 60) {
+                this.sec = 0;
+                this.secDIV.innerHTML = this.sec;
+                incMin();
+            }
+        }
+    ,1000);
+}
+
+function incMin(){
+    if (this.min < 60) {
+        this.min += 1;
+    }
+    else if (this.min == 60) {
+        this.min = 0;
+        incHr();
+    }
+    this.minDIV = this.min;
+}
+
+function incHr(){
+    if (this.hr < 24) {
+        this.hr += 1;
+    }
+    else if (this.hr == 24) {
+        this.hr = 1;
+    }
+    this.hrDIV = this.hr;
+}

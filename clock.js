@@ -20,9 +20,10 @@ function init(){
     civilianTime();
 
     this.hrDIV.innerHTML = this.hr;
-    this.minDIV.innerHTML = this.min;
     this.secDIV.innerHTML = this.sec;
-
+    if (this.min < 10) {
+        this.minDIV.innerHTML = "0" + this.min;
+    }
     ticker();
 }
 
@@ -50,12 +51,18 @@ function ticker(){
 function incMin(){
     if (this.min < 60) {
         this.min += 1;
+        if (this.min < 10) {
+            this.minDIV.innerHTML = "0" + this.min;
+        }
+        else {
+            this.min += 1;
+            this.minDIV.innerHTML = this.min;
+        }
     }
     else if (this.min == 60) {
         this.min = 0;
         incHr();
     }
-    this.minDIV.innerHTML = this.min;
 }
 
 function incHr(){

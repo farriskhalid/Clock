@@ -37,13 +37,12 @@ function ticker(){
         function () {
             if (this.sec < 60) {
                 this.sec += 1;
-                this.secDIV.innerHTML = this.sec;
             }
             else if (this.sec == 60) {
                 this.sec = 0;
-                this.secDIV.innerHTML = this.sec;
                 incMin();
             }
+            this.secDIV.innerHTML = this.sec;
         }
     ,1000);
 }
@@ -56,7 +55,7 @@ function incMin(){
         this.min = 0;
         incHr();
     }
-    this.minDIV = this.min;
+    this.minDIV.innerHTML = this.min;
 }
 
 function incHr(){
@@ -66,5 +65,5 @@ function incHr(){
     else if (this.hr == 24) {
         this.hr = 1;
     }
-    this.hrDIV = this.hr;
+    this.hrDIV.innerHTML = this.hr;
 }

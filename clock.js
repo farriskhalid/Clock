@@ -24,6 +24,9 @@ function init(){
     if (this.min < 10) {
         this.minDIV.innerHTML = "0" + this.min;
     }
+    else {
+        this.minDIV.innerHTML = this.min
+    }
     ticker();
 }
 

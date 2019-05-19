@@ -20,7 +20,7 @@ function init(){
     civilianTime();
 
     this.hrDIV.innerHTML = this.hr;
-    this.secDIV.innerHTML = this.min;
+    this.secDIV.innerHTML = this.sec;
     if (this.min < 10) {
         this.minDIV.innerHTML = "0" + this.min;
     }
